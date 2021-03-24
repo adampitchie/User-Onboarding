@@ -4,6 +4,7 @@ import Form from './Form'
 import schema from './formSchema'
 import * as yup from 'yup'
 import axios from 'axios'
+import User from './User'
 
 const initialFormValues = {
   name: '',
@@ -28,7 +29,8 @@ function App() {
     axios
     .post('https://reqres.in/api/users', newUser)
     .then(res => {
-      setUsers(newUser)
+      setUsers([res.data])
+      setFormValues(initialFormValues)
     })
     .catch(err => {
       console.log(err)
@@ -83,6 +85,14 @@ function App() {
         disabled={disabled}
         errors={formErrors}
       />
+
+      {
+        users.map(user => {
+          return (
+            <User info={user} />
+          )
+        })
+      }
     </div>
   );
 }
