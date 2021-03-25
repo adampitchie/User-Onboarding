@@ -89,7 +89,7 @@ function App() {
       {
         users.map(user => {
           return (
-            <User info={user} />
+            <User key={user.name} info={user} />
           )
         })
       }
