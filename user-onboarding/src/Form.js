@@ -58,7 +58,7 @@ export default function Form(props) {
             />
           </label>
 
-          <button>Submit</button>
+          <button id="submitBtn">Submit</button>
         </div>
 
         <div className='errors'>
